@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_application">
+    <sys_app_application action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category display_value="Custom Applications">e0355b31ef303000a61d5a3615c0fb78</category>
+        <description/>
+        <device_type>browser</device_type>
+        <hint/>
+        <name/>
+        <order>100</order>
+        <roles/>
+        <sys_class_name>sys_app_application</sys_class_name>
+        <sys_created_by>ruben.castro</sys_created_by>
+        <sys_created_on>2022-04-15 17:37:50</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>026b9f722f720110be66f7ecf699b609</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Wizard Update Set</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Update Set" source="x_535906_update_se">d9d7fa662f320110be66f7ecf699b680</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Update Set">d9d7fa662f320110be66f7ecf699b680</sys_scope>
+        <sys_update_name>sys_app_application_026b9f722f720110be66f7ecf699b609</sys_update_name>
+        <sys_updated_by>ruben.castro</sys_updated_by>
+        <sys_updated_on>2022-04-15 17:37:50</sys_updated_on>
+        <title>Wizard Update Set</title>
+        <view_name/>
+    </sys_app_application>
+</record_update>
