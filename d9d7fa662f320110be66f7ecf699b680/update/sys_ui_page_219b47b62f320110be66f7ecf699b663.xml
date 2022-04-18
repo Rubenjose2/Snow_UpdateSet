@@ -1,28 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
     <sys_ui_page action="INSERT_OR_UPDATE">
         <category>general</category>
-        <client_script/>
+        <client_script><![CDATA[var ok = document.getElementById("ok_button");
+//ok.disabled = true;
+var sessionProduct = sessionStorage.getItem('keyProduct');
+GlideDialogWindow.setPreference('sessionProduct',sessionStorage.getItem('keyProduct'));
+
+/*function previewList() {
+	var ga = new GlideAjax('Promotion_candidate_list_modal');
+	ga.addParam('sysparm_name', 'gatherEligibleHRProfiles');
+	var response=ga.getXMLAnswer(callbackMethod);
+
+	return true;
+}
+
+function callbackMethod(response) {
+	document.getElementById("preview_number").innerHTML = 'There are ' + response + " candidates eligibles to add to the list.";
+}
+
+
+function runScript() {
+// 	Showing the loading
+	document.getElementById("loading-id").style.display = "block";
+	
+// 	Remove the preview message
+	document.getElementById("preview_number").innerHTML = '';
+	
+	var ga = new GlideAjax('Promotion_candidate_list_modal');
+	ga.addParam('sysparm_name', 'populateCandidateListScript');
+	var response=ga.getXMLAnswer(scriptReturn); 
+}
+
+function scriptReturn(response){
+
+	document.getElementById("script_result").innerHTML = response;
+	document.getElementById("loading-id").style.display = "none";
+	document.getElementById("action-buttons-set").style.display="none";
+	ok.disabled = false;
+	
+}*/
+
+function actionOk(){ 
+	var product = gel('product').value;
+	sessionStorage.setItem('keyProduct',product);
+	var storyName = gel('story_name').value;
+	sessionStorage.setItem('keyStory',storyName);
+	var version = gel('version').value;
+	sessionStorage.setItem('keyVersion',version);
+	console.log(product);
+	console.log(storyName);
+	console.log(version);
+	//GlideDialogWindow.get().destroy();
+    //return false;
+}
+
+function cancel() {
+	GlideDialogWindow.get().destroy();
+    return false;
+}]]></client_script>
         <description>Modal to help build an Update Set Name</description>
         <direct>false</direct>
         <endpoint>x_535906_update_se_Update Set Wizard.do</endpoint>
         <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
 <j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
 <style>
-    .preview-response {
-        margin-bottom: 10px;
-        margin-top: 10px;
-        text-align: center;
+    .form-container{
+        width:100px;
     }
-
-    .loading {
-        text-align: center;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        display: none;
-    }
-
     .running-script {
         margin-left: 5px;
+    }
+    .buttons-dividers{
+        margin-top:20px;
     }
 </style>
 <div style="text-align:center;">
@@ -31,20 +80,18 @@
     </div>
 </div>
 
-<div style="text-align:center;" id="action-buttons-set">
-    <button onClick="return previewList();">Preview List</button>
-    <button onClick="return runScript();" class="btn btn-primary">Run Script</button>
-</div>
-
-<div class="preview-response" id="preview_number"></div>
-<div class="preview-response" id="script_result"></div>
-<div class="loading" id="loading-id">
-    <img src="images/animated/loading_sm_white.gif" id="status_img" aria-label="Loading Circle" /><span
-        class="running-script">Loading Script...</span>
-</div>
 <g:ui_form>
-    <div style="text-align:center;">
-        <g:dialog_buttons_ok_cancel ok_text="Close" ok_title="Close and Finish" ok="return actionOk();"
+    <div style="text-align:center;" id="product-id" >
+        <g:ui_input_field label="Product" name="product" value="${sessionProduct}" size="20" mandatory="true"/>
+    </div>
+    <div style="text-align:center;" id="story-id" >
+        <g:ui_input_field label="Story Number" name="story_name" value="" size="20" mandatory="true"/>
+    </div>
+    <div style="text-align:center;" id="version-id" >
+        <g:ui_input_field label="Version" name="version" value="" size="20"/>
+    </div>
+    <div style="text-align:center;" class="buttons-dividers">
+        <g:dialog_buttons_ok_cancel ok_text="Accept" ok_title="acept and close" ok="return actionOk();"
             cancel_text="Cancel" cancel_title="Cancel and back" cancel="return cancel();" />
     </div>
 </g:ui_form>
@@ -55,13 +102,13 @@
         <sys_created_by>ruben.castro</sys_created_by>
         <sys_created_on>2022-04-15 16:30:03</sys_created_on>
         <sys_id>219b47b62f320110be66f7ecf699b663</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>250</sys_mod_count>
         <sys_name>Update Set Wizard</sys_name>
         <sys_package display_value="Update Set" source="x_535906_update_se">d9d7fa662f320110be66f7ecf699b680</sys_package>
         <sys_policy/>
         <sys_scope display_value="Update Set">d9d7fa662f320110be66f7ecf699b680</sys_scope>
         <sys_update_name>sys_ui_page_219b47b62f320110be66f7ecf699b663</sys_update_name>
         <sys_updated_by>ruben.castro</sys_updated_by>
-        <sys_updated_on>2022-04-15 16:42:33</sys_updated_on>
+        <sys_updated_on>2022-04-18 20:23:21</sys_updated_on>
     </sys_ui_page>
 </record_update>
