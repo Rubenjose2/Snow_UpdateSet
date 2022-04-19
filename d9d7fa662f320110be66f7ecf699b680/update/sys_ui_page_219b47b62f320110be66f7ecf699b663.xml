@@ -3,55 +3,45 @@
         <category>general</category>
         <client_script><![CDATA[var ok = document.getElementById("ok_button");
 //ok.disabled = true;
-var sessionProduct = sessionStorage.getItem('keyProduct');
-GlideDialogWindow.setPreference('sessionProduct',sessionStorage.getItem('keyProduct'));
+document.getElementById('product').value = localStorage.getItem('keyProduct');
+document.getElementById('story_name').value = localStorage.getItem('keyStory');
+document.getElementById('version').value = localStorage.getItem('keyVersion');
 
-/*function previewList() {
-	var ga = new GlideAjax('Promotion_candidate_list_modal');
-	ga.addParam('sysparm_name', 'gatherEligibleHRProfiles');
-	var response=ga.getXMLAnswer(callbackMethod);
-
+function validate() {
+	if (gel('product').value == ''){
+		alert("${JS:gs.getMessage('Please enter the Product Name')}");
+		return false;
+	}
+	if (gel('story_name').value == ''){
+		alert("${JS:gs.getMessage('Please enter the Story Number')}");
+		return false;
+	}
 	return true;
 }
 
-function callbackMethod(response) {
-	document.getElementById("preview_number").innerHTML = 'There are ' + response + " candidates eligibles to add to the list.";
+function normalizeStrg(string){
+	return string.trim().replace(/\s/g,'_');
 }
-
-
-function runScript() {
-// 	Showing the loading
-	document.getElementById("loading-id").style.display = "block";
-	
-// 	Remove the preview message
-	document.getElementById("preview_number").innerHTML = '';
-	
-	var ga = new GlideAjax('Promotion_candidate_list_modal');
-	ga.addParam('sysparm_name', 'populateCandidateListScript');
-	var response=ga.getXMLAnswer(scriptReturn); 
-}
-
-function scriptReturn(response){
-
-	document.getElementById("script_result").innerHTML = response;
-	document.getElementById("loading-id").style.display = "none";
-	document.getElementById("action-buttons-set").style.display="none";
-	ok.disabled = false;
-	
-}*/
 
 function actionOk(){ 
-	var product = gel('product').value;
-	sessionStorage.setItem('keyProduct',product);
-	var storyName = gel('story_name').value;
-	sessionStorage.setItem('keyStory',storyName);
-	var version = gel('version').value;
-	sessionStorage.setItem('keyVersion',version);
-	console.log(product);
-	console.log(storyName);
-	console.log(version);
-	//GlideDialogWindow.get().destroy();
-    //return false;
+	if(validate()){
+		var updateObj = {
+			product: normalizeStrg(gel('product').value),
+			storyName: normalizeStrg(gel('story_name').value),
+			version: normalizeStrg(gel('version').value)
+		};
+		console.log(updateObj);
+		var product = gel('product').value;
+		localStorage.setItem('keyProduct',updateObj.product);
+		var storyName = gel('story_name').value;
+		localStorage.setItem('keyStory',updateObj.storyName);
+		var version = gel('version').value;
+		localStorage.setItem('keyVersion',updateObj.version);
+		GlideDialogWindow.get().destroy();
+		return false;
+	}
+	return false;
+
 }
 
 function cancel() {
@@ -82,7 +72,7 @@ function cancel() {
 
 <g:ui_form>
     <div style="text-align:center;" id="product-id" >
-        <g:ui_input_field label="Product" name="product" value="${sessionProduct}" size="20" mandatory="true"/>
+        <g:ui_input_field label="Product" name="product" value="" size="20" mandatory="true"/>
     </div>
     <div style="text-align:center;" id="story-id" >
         <g:ui_input_field label="Story Number" name="story_name" value="" size="20" mandatory="true"/>
@@ -102,13 +92,13 @@ function cancel() {
         <sys_created_by>ruben.castro</sys_created_by>
         <sys_created_on>2022-04-15 16:30:03</sys_created_on>
         <sys_id>219b47b62f320110be66f7ecf699b663</sys_id>
-        <sys_mod_count>250</sys_mod_count>
+        <sys_mod_count>407</sys_mod_count>
         <sys_name>Update Set Wizard</sys_name>
         <sys_package display_value="Update Set" source="x_535906_update_se">d9d7fa662f320110be66f7ecf699b680</sys_package>
         <sys_policy/>
         <sys_scope display_value="Update Set">d9d7fa662f320110be66f7ecf699b680</sys_scope>
         <sys_update_name>sys_ui_page_219b47b62f320110be66f7ecf699b663</sys_update_name>
         <sys_updated_by>ruben.castro</sys_updated_by>
-        <sys_updated_on>2022-04-18 20:23:21</sys_updated_on>
+        <sys_updated_on>2022-04-19 01:17:32</sys_updated_on>
     </sys_ui_page>
 </record_update>
