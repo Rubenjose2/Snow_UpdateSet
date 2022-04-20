@@ -9,13 +9,16 @@
         <name>updateSetName</name>
         <script><![CDATA[var updateSetName = Class.create();
 updateSetName.prototype = {
-    initialize: function() {},
+    initialize: function() {
+		this.STRING_CUT = gs.getProperty('x_535906_update_se.stringLengt');
+		this.PREFIX = gs.getProperty('x_535906_update_se.Pre-fix');
+	},
     //deloitte_<Product>_<ScopeName>_<StroyNumber>_<DevInitials>_<Version#>
     generateUpdateSetName: function() {
-        return 'deloitte_<Product>_' + this._getScope() + '_<StroyNumber>_' + this._getUserInitial() + '_<Version#>';
+        return this.PREFIX + '_<Product>_' + this._getScope() + '_<StroyNumber>_' + this._getUserInitial() + '_<Version#>';
     },
 	generateUpdateSetNameV2: function(nameObj){
-		return 'deloitte_' + nameObj.product + '_' + this._getScope() + '_' + nameObj.storyName +'_' + this._getUserInitial() + '_' + nameObj.version;
+		return this.PREFIX + '_' + nameObj.product + '_' + this._getScope() + '_' + nameObj.storyName +'_' + this._getUserInitial() + '_' + nameObj.version;
 	},
     _getScope: function() {
         var appId = gs.getCurrentApplicationId();
@@ -31,7 +34,7 @@ updateSetName.prototype = {
     },
 	_normalizeStrg: function(string){
 		string = string.toString();
-		if(string.length > 15){
+		if(string.length > this.STRING_CUT){
 			var finalString = '';
 			var stringObj = string.split(' ');
 			stringObj.forEach(function(element){
@@ -50,13 +53,13 @@ updateSetName.prototype = {
         <sys_created_by>ruben.castro</sys_created_by>
         <sys_created_on>2022-04-14 20:27:14</sys_created_on>
         <sys_id>9bf7b2a62f320110be66f7ecf699b638</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>updateSetName</sys_name>
         <sys_package display_value="Update Set" source="x_535906_update_se">d9d7fa662f320110be66f7ecf699b680</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Update Set">d9d7fa662f320110be66f7ecf699b680</sys_scope>
         <sys_update_name>sys_script_include_9bf7b2a62f320110be66f7ecf699b638</sys_update_name>
         <sys_updated_by>ruben.castro</sys_updated_by>
-        <sys_updated_on>2022-04-20 15:23:10</sys_updated_on>
+        <sys_updated_on>2022-04-20 15:46:49</sys_updated_on>
     </sys_script_include>
 </record_update>
