@@ -15,6 +15,10 @@ function validate() {
 	if (gel('story_name').value == ''){
 		alert("${JS:gs.getMessage('Please enter the Story Number')}");
 		return false;
+	}	
+	if (gel('version').value == ''){
+		alert("${JS:gs.getMessage('Please enter the Version')}");
+		return false;
 	}
 	return true;
 }
@@ -37,8 +41,19 @@ function actionOk(){
 		localStorage.setItem('keyStory',updateObj.storyName);
 		var version = gel('version').value;
 		localStorage.setItem('keyVersion',updateObj.version);
-		GlideDialogWindow.get().destroy();
-		return false;
+		
+		//Calling the Helper
+		var ga = new GlideAjax('UpdateSetNameHelper');
+		ga.addParam('sysparm_name','pullName');
+		ga.addParam('name_obj',JSON.stringify(updateObj));
+		ga.getXML(function(response){
+			var fullname = response.responseXML.documentElement.getAttribute("answer");
+			console.log(fullname);
+			GlideDialogWindow.get().destroy();		
+			window.location.href="sys_update_set.do?sys_id=-1&sysparm_name=" + fullname;
+		});
+
+		//return false;
 	}
 	return false;
 
@@ -92,13 +107,13 @@ function cancel() {
         <sys_created_by>ruben.castro</sys_created_by>
         <sys_created_on>2022-04-15 16:30:03</sys_created_on>
         <sys_id>219b47b62f320110be66f7ecf699b663</sys_id>
-        <sys_mod_count>407</sys_mod_count>
+        <sys_mod_count>524</sys_mod_count>
         <sys_name>Update Set Wizard</sys_name>
         <sys_package display_value="Update Set" source="x_535906_update_se">d9d7fa662f320110be66f7ecf699b680</sys_package>
         <sys_policy/>
         <sys_scope display_value="Update Set">d9d7fa662f320110be66f7ecf699b680</sys_scope>
         <sys_update_name>sys_ui_page_219b47b62f320110be66f7ecf699b663</sys_update_name>
         <sys_updated_by>ruben.castro</sys_updated_by>
-        <sys_updated_on>2022-04-19 01:17:32</sys_updated_on>
+        <sys_updated_on>2022-04-20 11:27:06</sys_updated_on>
     </sys_ui_page>
 </record_update>
