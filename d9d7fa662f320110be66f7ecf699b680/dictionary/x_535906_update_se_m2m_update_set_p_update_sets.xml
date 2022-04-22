@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Update Se M2m Update Set P Update Sets" max_length="40" name="x_535906_update_se_m2m_update_set_p_update_sets" sizeclass="2" type="collection">
+        <element label="Stage" max_length="32" name="stage" reference="sys_update_set" type="reference"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return 'progress';&#13;&#10;})(current);" default="testing" label="State" max_length="32" name="state" read_only="true" type="string" use_dependent_field="true"/>
+        <element attributes="encode_utf8=false" label="Update Set" max_length="32" name="update_set" reference="sys_update_set" type="reference"/>
+        <element attributes="encode_utf8=false" label="Update Set Products" max_length="32" name="update_set_products" reference="x_535906_update_se_update_set_products" type="reference"/>
+        <index name="index">
+            <element name="stage"/>
+        </index>
+        <index name="index2">
+            <element name="update_set_products"/>
+        </index>
+        <index name="index3">
+            <element name="state"/>
+        </index>
+        <index name="index4">
+            <element name="update_set"/>
+        </index>
+    </element>
+</database>

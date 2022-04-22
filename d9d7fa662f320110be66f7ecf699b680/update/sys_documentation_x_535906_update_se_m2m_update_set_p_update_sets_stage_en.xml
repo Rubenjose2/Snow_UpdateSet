@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="stage" label="Stage" language="en" table="x_535906_update_se_m2m_update_set_p_update_sets">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>stage</element>
+            <help/>
+            <hint/>
+            <label>Stage</label>
+            <language>en</language>
+            <name>x_535906_update_se_m2m_update_set_p_update_sets</name>
+            <plural>Stages</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>ruben.castro</sys_created_by>
+            <sys_created_on>2022-04-21 17:00:07</sys_created_on>
+            <sys_id>cf5c023c2f830110be66f7ecf699b69d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Stage</sys_name>
+            <sys_package display_value="Update Set" source="x_535906_update_se">d9d7fa662f320110be66f7ecf699b680</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Update Set">d9d7fa662f320110be66f7ecf699b680</sys_scope>
+            <sys_update_name>sys_documentation_x_535906_update_se_m2m_update_set_p_update_sets_stage_en</sys_update_name>
+            <sys_updated_by>ruben.castro</sys_updated_by>
+            <sys_updated_on>2022-04-21 17:00:07</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

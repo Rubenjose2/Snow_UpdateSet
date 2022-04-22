@@ -7,6 +7,15 @@ document.getElementById('product').value = localStorage.getItem('keyProduct');
 document.getElementById('story_name').value = localStorage.getItem('keyStory');
 document.getElementById('version').value = localStorage.getItem('keyVersion');
 
+var ch = document.querySelector('#dropdownId');
+var newOption = document.createElement('option');
+var optionText = document.createTextNode('Option Text');
+
+newOption.appendChild(optionText);
+newOption.setAttribute('value','OptionValue');
+ch.appendChild(newOption);
+
+
 function validate() {
 	if (gel('product').value == ''){
 		alert("${JS:gs.getMessage('Please enter the Product Name')}");
@@ -86,6 +95,12 @@ function cancel() {
 </div>
 
 <g:ui_form>
+<div  style="text-align:center;">
+    <select id="dropdownId" label="product">  
+    <option>--select--</option>
+    </select>  
+</div>
+
     <div style="text-align:center;" id="product-id" >
         <g:ui_input_field label="Product" name="product" value="" size="20" mandatory="true"/>
     </div>
@@ -107,13 +122,13 @@ function cancel() {
         <sys_created_by>ruben.castro</sys_created_by>
         <sys_created_on>2022-04-15 16:30:03</sys_created_on>
         <sys_id>219b47b62f320110be66f7ecf699b663</sys_id>
-        <sys_mod_count>524</sys_mod_count>
+        <sys_mod_count>666</sys_mod_count>
         <sys_name>Update Set Wizard</sys_name>
         <sys_package display_value="Update Set" source="x_535906_update_se">d9d7fa662f320110be66f7ecf699b680</sys_package>
         <sys_policy/>
         <sys_scope display_value="Update Set">d9d7fa662f320110be66f7ecf699b680</sys_scope>
         <sys_update_name>sys_ui_page_219b47b62f320110be66f7ecf699b663</sys_update_name>
         <sys_updated_by>ruben.castro</sys_updated_by>
-        <sys_updated_on>2022-04-20 11:27:06</sys_updated_on>
+        <sys_updated_on>2022-04-20 21:06:46</sys_updated_on>
     </sys_ui_page>
 </record_update>

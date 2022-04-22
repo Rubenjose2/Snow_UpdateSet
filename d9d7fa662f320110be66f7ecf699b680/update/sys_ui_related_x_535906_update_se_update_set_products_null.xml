@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_related sys_domain="global" table="x_535906_update_se_update_set_products" version="2" view="">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="Update Set Products - Default view" name="x_535906_update_se_update_set_products" related_list="NULL" sys_domain="global" view="Default view">c8ef2e2c2f0b0110be66f7ecf699b63c</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>x_535906_update_se_m2m_update_set_p_update_sets.update_set_products</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>ruben.castro</sys_created_by>
+            <sys_created_on>2022-04-21 00:56:49</sys_created_on>
+            <sys_id>44ef2e2c2f0b0110be66f7ecf699b63e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>ruben.castro</sys_updated_by>
+            <sys_updated_on>2022-04-21 00:56:49</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>Update Set Products - Default view</calculated_name>
+            <filter/>
+            <name>x_535906_update_se_update_set_products</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>ruben.castro</sys_created_by>
+            <sys_created_on>2022-04-21 00:56:48</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c8ef2e2c2f0b0110be66f7ecf699b63c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Update Set Products - Default view</sys_name>
+            <sys_package display_value="Update Set" source="x_535906_update_se">d9d7fa662f320110be66f7ecf699b680</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Update Set">d9d7fa662f320110be66f7ecf699b680</sys_scope>
+            <sys_update_name>sys_ui_related_x_535906_update_se_update_set_products_null</sys_update_name>
+            <sys_updated_by>ruben.castro</sys_updated_by>
+            <sys_updated_on>2022-04-21 00:56:48</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>

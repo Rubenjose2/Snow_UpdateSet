@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element label="Update Set Products" max_length="40" name="x_535906_update_se_update_set_products" type="collection">
+    <element label="Update Set Products" max_length="40" name="x_535906_update_se_update_set_products" sizeclass="2" type="collection">
         <element label="Lead Tech" max_length="32" name="lead_tech" reference="sys_user" type="reference"/>
         <element label="Name" mandatory="true" max_length="30" name="name" type="string"/>
         <element default="true" label="State" max_length="40" name="state" type="boolean"/>
